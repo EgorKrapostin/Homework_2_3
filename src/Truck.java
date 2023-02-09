@@ -1,17 +1,17 @@
-public class Bus extends Transport<DriverD> {
+public class Truck extends Transport<DriverC> {
 
-    public Bus(String brand, String model, float engineVolume) {
+    public Truck(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
     }
 
     @Override
     public void startMove() {
-        System.out.println("Автобус начинает движение");
+        System.out.println("Грузовик начинает движение");
     }
 
     @Override
     public void finishMove() {
-        System.out.println("Автобус завершает движение");
+        System.out.println("Грузовик завершает движение");
     }
 
     @Override
@@ -26,6 +26,6 @@ public class Bus extends Transport<DriverD> {
 
     @Override
     public void maxSpeed() {
-        System.out.println("Максимальная скорость: 60км/ч");
+        System.out.println("Максимальная скорость: 80км/ч");
     }
 }

@@ -1,12 +1,9 @@
-public class Transport {
+public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
     private final String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int maxSpeed;
+    private float engineVolume;
 
-    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
+    public Transport(String brand, String model, float engineVolume) {
         if (brand == null || brand.isEmpty()) {
             brand = "default";
         }
@@ -15,22 +12,10 @@ public class Transport {
             model = "default";
         }
         this.model = model;
-        if (year < 0) {
-            year = 2000;
+        if (engineVolume <= 0) {
+            engineVolume = 1.2F;
         }
-        this.year = year;
-        if (country == null || country.isEmpty()) {
-            country = "default";
-        }
-        this.country = country;
-        if (color == null || color.isEmpty()) {
-            color = "default";
-        }
-        this.color = color;
-        if (maxSpeed < 0) {
-            maxSpeed = 80;
-        }
-        this.maxSpeed = maxSpeed;
+        this.engineVolume = engineVolume;
     }
 
     public String getBrand() {
@@ -41,39 +26,23 @@ public class Transport {
         return model;
     }
 
-    public int getYear() {
-        return year;
+    public float getEngineVolume() {
+        return engineVolume;
     }
 
-    public String getCountry() {
-        return country;
+    public void setEngineVolume(float engineVolume) {
+        this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
+    public abstract void startMove();
+    public abstract void finishMove();
 
     @Override
     public String toString() {
         return "Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", year=" + year +
-                ", country='" + country + '\'' +
-                ", color='" + color + '\'' +
-                ", maxSpeed=" + maxSpeed +
+                ", engineVolume=" + engineVolume +
                 '}';
     }
 }
