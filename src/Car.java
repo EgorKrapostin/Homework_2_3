@@ -1,7 +1,8 @@
 public class Car extends Transport<DriverB> {
-
-    public Car(String brand, String model, float engineVolume) {
+    BodyType bodyType;
+    public Car(String brand, String model, float engineVolume,BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -12,6 +13,16 @@ public class Car extends Transport<DriverB> {
     @Override
     public void finishMove() {
         System.out.println("Машина завершает движение");
+    }
+
+    @Override
+    public void getType() {
+        System.out.println(Type.CAR);
+    }
+
+    @Override
+    public void printType() {
+        System.out.println(bodyType == null ? "Данных по транспортному средству недостаточно" : bodyType);
     }
 
     @Override
@@ -27,5 +38,30 @@ public class Car extends Transport<DriverB> {
     @Override
     public void maxSpeed() {
         System.out.println("Максимальная скорость: 120км/ч");
+    }
+
+    enum BodyType {
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбэк"),
+        COUPE("Купе"),
+        ESTATE("Универсал"),
+        OFFROAD("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+
+        private String bodyType;
+
+        BodyType(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+        @Override
+        public String toString() {
+            return "BodyType{" +
+                    "Тип кузова='" + bodyType + '\'' +
+                    '}';
+        }
     }
 }
