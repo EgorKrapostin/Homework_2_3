@@ -65,5 +65,4 @@ public class Truck extends Transport<DriverC> {
 
 
     }
-
 }
