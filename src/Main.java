@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
         Car car = new Car("Audi","Audi",2F, Car.BodyType.SEDAN);
@@ -6,9 +8,18 @@ public class Main {
 
         car.getType();
         car.printType();
+        car.passDiagnostics();
         bus.getType();
         bus.printType();
+        try {
+            bus.passDiagnostics();
+        } catch (TransportTypeException e) {
+            e.printStackTrace();
+
+        }
         truck.getType();
         truck.printType();
+        truck.passDiagnostics();
     }
+
 }

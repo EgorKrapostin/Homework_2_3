@@ -1,5 +1,5 @@
 public class Car extends Transport<DriverB> {
-    BodyType bodyType;
+    private BodyType bodyType;
     public Car(String brand, String model, float engineVolume,BodyType bodyType) {
         super(brand, model, engineVolume);
         this.bodyType = bodyType;
@@ -23,6 +23,11 @@ public class Car extends Transport<DriverB> {
     @Override
     public void printType() {
         System.out.println(bodyType == null ? "Данных по транспортному средству недостаточно" : bodyType);
+    }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Автомобиль прошел диагностику");
     }
 
     @Override
@@ -64,4 +69,5 @@ public class Car extends Transport<DriverB> {
                     '}';
         }
     }
+
 }
