@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
     private final String model;
@@ -39,6 +41,8 @@ public abstract class Transport<T extends Driver> implements Competitionable {
     public abstract void getType();
     public abstract void printType();
 
+    public abstract void passDiagnostics() throws TransportTypeException;
+
     enum Type {
         CAR("Легковой автомобиль"),
         BUS("Автобус"),
@@ -59,4 +63,5 @@ public abstract class Transport<T extends Driver> implements Competitionable {
                 ", engineVolume=" + engineVolume +
                 '}';
     }
+
 }

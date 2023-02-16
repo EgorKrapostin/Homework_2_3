@@ -1,5 +1,5 @@
 public class Truck extends Transport<DriverC> {
-    CarryingCapacity carryingCapacity;
+    private CarryingCapacity carryingCapacity;
     public Truck(String brand, String model, float engineVolume,CarryingCapacity carryingCapacity) {
         super(brand, model, engineVolume);
         this.carryingCapacity = carryingCapacity;
@@ -23,6 +23,11 @@ public class Truck extends Transport<DriverC> {
     @Override
     public void printType() {
         System.out.println(carryingCapacity == null ? "Данных по транспортному средству недостаточно" : carryingCapacity);
+    }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Грузовик прошел диагностику");
     }
 
     @Override

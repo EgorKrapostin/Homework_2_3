@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class Bus extends Transport<DriverD> {
-    Capacity capacity;
+    private Capacity capacity;
     public Bus(String brand, String model, float engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
         this.capacity = capacity;
@@ -23,6 +25,11 @@ public class Bus extends Transport<DriverD> {
     @Override
     public void printType() {
         System.out.println(capacity == null ? "Данных по транспортному средству недостаточно" : capacity);
+    }
+
+    @Override
+    public void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусу проходить диагонстику не нужно");
     }
 
     @Override
@@ -63,4 +70,5 @@ public class Bus extends Transport<DriverD> {
                     '}';
         }
     }
+
 }
