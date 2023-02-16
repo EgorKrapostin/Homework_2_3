@@ -36,6 +36,20 @@ public abstract class Transport<T extends Driver> implements Competitionable {
 
     public abstract void startMove();
     public abstract void finishMove();
+    public abstract void getType();
+    public abstract void printType();
+
+    enum Type {
+        CAR("Легковой автомобиль"),
+        BUS("Автобус"),
+        TRUCK("Грузовик");
+
+        private String transportType;
+
+        Type(String transportType) {
+            this.transportType = transportType;
+        }
+    }
 
     @Override
     public String toString() {
