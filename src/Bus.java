@@ -1,9 +1,15 @@
 import java.io.IOException;
+import java.util.List;
 
 public class Bus extends Transport<DriverD> {
     private Capacity capacity;
     public Bus(String brand, String model, float engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
+    }
+
+    public Bus(String brand, String model, float engineVolume, DriverD driver, List<Mechanic> mechanicList, Capacity capacity) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.capacity = capacity;
     }
 

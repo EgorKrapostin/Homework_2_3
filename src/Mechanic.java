@@ -30,4 +30,12 @@ public class Mechanic {
     public void fixTransport() {
         System.out.println("Механиик чинит транспорт");
     }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "name='" + name + '\'' +
+                ", company='" + company + '\'' +
+                '}';
+    }
 }

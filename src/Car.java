@@ -1,7 +1,14 @@
-public class Car extends Transport<DriverB> {
+import java.util.List;
+
+public class Car extends Transport<DriverB> implements Serviceable {
     private BodyType bodyType;
     public Car(String brand, String model, float engineVolume,BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
+    }
+
+    public Car(String brand, String model, float engineVolume, DriverB driver, List<Mechanic> mechanicList, BodyType bodyType) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.bodyType = bodyType;
     }
 
