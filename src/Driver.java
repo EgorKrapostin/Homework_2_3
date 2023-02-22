@@ -23,4 +23,17 @@ public abstract class Driver {
                 ", expInYears=" + expInYears +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return driverLicense == driver.driverLicense && expInYears == driver.expInYears && name.equals(driver.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, driverLicense, expInYears);
+    }
 }

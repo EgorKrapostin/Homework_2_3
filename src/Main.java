@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,5 +42,16 @@ public class Main {
         serviceStation.technicalInspection(car1);
         serviceStation.technicalInspection(truck1);
         System.out.println(serviceableQueue);
+
+        Driver driver = new DriverC("Иванов Иван", true, 8);
+        Driver driver1 = new DriverC("Иванов Иван", true, 8);
+        Driver driver2 = new DriverB("Иванов Иван2", true, 1);
+        Driver driver3 = new DriverD("Ивано Иван3", true, 5);
+        Set<Driver> drivers = new HashSet<>();
+        drivers.add(driver);
+        drivers.add(driver1);
+        drivers.add(driver2);
+        drivers.add(driver3);
+        System.out.println(drivers);
     }
 }
