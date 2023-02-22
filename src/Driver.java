@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Driver {
     private String name;
     private boolean driverLicense;
@@ -12,4 +14,13 @@ public abstract class Driver {
     public abstract void startMove();
     public abstract void finishMove();
     public abstract void refill();
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "name='" + name + '\'' +
+                ", driverLicense=" + driverLicense +
+                ", expInYears=" + expInYears +
+                '}';
+    }
 }

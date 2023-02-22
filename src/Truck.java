@@ -1,7 +1,14 @@
-public class Truck extends Transport<DriverC> {
+import java.util.List;
+
+public class Truck extends Transport<DriverC> implements Serviceable {
     private CarryingCapacity carryingCapacity;
     public Truck(String brand, String model, float engineVolume,CarryingCapacity carryingCapacity) {
         super(brand, model, engineVolume);
+        this.carryingCapacity = carryingCapacity;
+    }
+
+    public Truck(String brand, String model, float engineVolume, DriverC driver, List<Mechanic> mechanicList, CarryingCapacity carryingCapacity) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.carryingCapacity = carryingCapacity;
     }
 

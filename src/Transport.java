@@ -1,9 +1,12 @@
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Transport<T extends Driver> implements Competitionable {
     private final String brand;
     private final String model;
     private float engineVolume;
+    private T driver;
+    private List<Mechanic> mechanicList;
 
     public Transport(String brand, String model, float engineVolume) {
         if (brand == null || brand.isEmpty()) {
@@ -18,6 +21,14 @@ public abstract class Transport<T extends Driver> implements Competitionable {
             engineVolume = 1.2F;
         }
         this.engineVolume = engineVolume;
+    }
+
+    public Transport(String brand, String model, float engineVolume, T driver, List<Mechanic> mechanicList) {
+        this.brand = brand;
+        this.model = model;
+        this.engineVolume = engineVolume;
+        this.driver = driver;
+        this.mechanicList = mechanicList;
     }
 
     public String getBrand() {
@@ -36,9 +47,20 @@ public abstract class Transport<T extends Driver> implements Competitionable {
         this.engineVolume = engineVolume;
     }
 
+    public T getDriver() {
+        return driver;
+    }
+
+    public void setDriver(T driver) {
+        this.driver = driver;
+    }
+
     public abstract void startMove();
+
     public abstract void finishMove();
+
     public abstract void getType();
+
     public abstract void printType();
 
     public abstract void passDiagnostics() throws TransportTypeException;
@@ -61,7 +83,8 @@ public abstract class Transport<T extends Driver> implements Competitionable {
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", engineVolume=" + engineVolume +
+                ", driver=" + driver +
+                ", mechanicList=" + mechanicList +
                 '}';
     }
-
 }
