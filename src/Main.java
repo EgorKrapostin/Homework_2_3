@@ -15,6 +15,7 @@ public class Main {
 
         Car car1 = new Car("Audi", "Audi", 2F, new DriverB("Ивано Иван", true, 5), carMechanicList, Car.BodyType.SEDAN);
         System.out.println(car1);
+        Car car2 = new Car("BMW", "BMW", 3F, new DriverB("Ивано Иван", true, 8), carMechanicList, Car.BodyType.COUPE);
 
         List<Mechanic> busMechanicList = new ArrayList<>();
         busMechanicList.add(mech3);
@@ -53,5 +54,12 @@ public class Main {
         drivers.add(driver2);
         drivers.add(driver3);
         System.out.println(drivers);
+
+        Map<Car, List<Mechanic>> mechanicMap = new HashMap<>();
+        mechanicMap.put(car1, carMechanicList);
+        mechanicMap.put(car2, carMechanicList);
+        for (Car car : mechanicMap.keySet()) {
+            System.out.println(car);
+        }
     }
 }
